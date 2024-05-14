@@ -57,7 +57,7 @@ git clone https://github.com/lavanet/lava.git
 cd lava
 git checkout v2.0.1
 export LAVA_BINARY=lavad
-make build
+make install
 
 $DAEMON_NAME config chain-id lava-testnet-2
 $DAEMON_NAME config keyring-backend test
