@@ -190,11 +190,11 @@ sudo systemctl restart systemd-journald
 sudo systemctl daemon-reload
 sudo systemctl enable $NODE
 sudo systemctl restart $NODE
-
+cd $HOME
 echo -e '\n\e[42mCheck node status\e[0m\n' && sleep 1
 if [[ `service $NODE status | grep active` =~ "running" ]]; then
   echo -e "Your $NODE node \e[32minstalled and works\e[39m!"
-  echo -e "You can check node status by the command \e[7mservice 0g status\e[0m"
+  echo -e "You can check node status by the command \e[7mservice $NODE status\e[0m"
   echo -e "Press \e[7mQ\e[0m for exit from status menu"
 else
   echo -e "Your $NODE node \e[31mwas not installed correctly\e[39m, please reinstall."
