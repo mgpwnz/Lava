@@ -1,7 +1,7 @@
 #!/bin/bash
 # Default variables
 function="install"
-NODE="lava"
+#git 2.0.0 
 # Options
 option_value(){ echo "$1" | sed -e 's%^--[^=]*=%%g; s%^-[^=]*=%%g'; }
 while test $# -gt 0; do
@@ -81,7 +81,7 @@ sed -i -e "s%:26658%:19958%; s%:26657%:19957%; s%:6060%:19960%; s%:26656%:19956%
 
 # Download latest chain data snapshot
 curl "https://snapshots-testnet.nodejumper.io/lava-testnet/lava-testnet_latest.tar.lz4" | lz4 -dc - | tar -xf - -C "$HOME/.lava"
-
+cd $HOME
 # Create a service
 sudo tee /etc/systemd/system/lava.service > /dev/null << EOF
 [Unit]
