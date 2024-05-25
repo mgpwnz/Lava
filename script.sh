@@ -81,6 +81,7 @@ sed -i -e "s%:26658%:19958%; s%:26657%:19957%; s%:6060%:19960%; s%:26656%:19956%
 
 # Download latest chain data snapshot
 curl "https://snapshots-testnet.nodejumper.io/lava-testnet/lava-testnet_latest.tar.lz4" | lz4 -dc - | tar -xf - -C "$HOME/.lava"
+sleep 2
 cd $HOME
 # Create a service
 sudo tee /etc/systemd/system/lava.service > /dev/null << EOF
