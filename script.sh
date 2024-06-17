@@ -48,7 +48,7 @@ source .bash_profile
 cd && rm -rf lava
 git clone https://github.com/lavanet/lava
 cd lava
-git checkout v2.1.3
+git checkout v2.1.1
 
 # Build binary
 export LAVA_BINARY=lavad
