@@ -10,6 +10,10 @@ while test $# -gt 0; do
             function="install"
             shift
             ;;
+        -up|--upgrade)
+            function="upgrade"
+            shift
+            ;;
         -un|--uninstall)
             function="uninstall"
             shift
@@ -44,7 +48,7 @@ source .bash_profile
 cd && rm -rf lava
 git clone https://github.com/lavanet/lava
 cd lava
-git checkout v2.0.0
+git checkout v2.1.3
 
 # Build binary
 export LAVA_BINARY=lavad
@@ -104,6 +108,18 @@ sudo systemctl enable lava.service
 sudo systemctl start lava.service
 sudo journalctl -u lava.service -f --no-hostname -o cat
 }
+upgrade() {
+cd && rm -rf lava
+git clone https://github.com/lavanet/lava
+cd lava
+git checkout v2.1.3
+make install-all
+
+sudo systemctl restart lavad
+sudo journalctl -u lavad -f --no-hostname -o cat
+
+}
+
 uninstall() {
 read -r -p "You really want to delete the node? [y/N] " response
 case "$response" in
