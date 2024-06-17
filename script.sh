@@ -114,7 +114,7 @@ git clone https://github.com/lavanet/lava
 cd lava
 git checkout v2.1.3
 make install-all
-
+cd $HOME
 sudo systemctl restart lava
 sudo journalctl -u lava -f --no-hostname -o cat
 
