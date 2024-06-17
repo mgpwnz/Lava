@@ -115,8 +115,8 @@ cd lava
 git checkout v2.1.3
 make install-all
 
-sudo systemctl restart lavad
-sudo journalctl -u lavad -f --no-hostname -o cat
+sudo systemctl restart lava
+sudo journalctl -u lava -f --no-hostname -o cat
 
 }
 
